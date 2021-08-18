@@ -12,7 +12,9 @@
   import Icon from "./Icon"
   export default {
     name: 'Button',
-    components: {Icon},
+    components: {
+      "xia-icon": Icon
+    },
     props:{
       icon:{},
       iconPosition:{
