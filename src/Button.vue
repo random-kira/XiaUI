@@ -1,6 +1,7 @@
 <template>
     <button class="xia-button" :class="{[`icon-${iconPosition}`]: true}">
-        <xia-icon :name="icon" v-if="icon" class="xia-icon"></xia-icon>
+        <xia-icon :name="icon" v-if="icon&&(!loading)" class="icon"></xia-icon>
+        <xia-icon name="loading" v-if="loading" class="loading icon"></xia-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -20,6 +21,10 @@
         validator(value) {
           return !(value !== 'left' && value !== 'right');
         }
+      },
+      loading:{
+        type: Boolean,
+        default: false
       }
     }
   };
@@ -35,6 +40,10 @@
     $color: #333;
     $border-color: #999;
     $border-color-hover: #666;
+    @keyframes spin {
+        0% {transform: rotate(0deg)}
+        100%{transform: rotate(360deg)}
+    }
     .xia-button {
         font-size: $font-size;
         height: $button-height;
@@ -46,6 +55,9 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
+        >.loading {
+            animation: spin 1s infinite linear;
+        }
         &:hover {
             border-color: $border-color-hover;
         }
@@ -56,25 +68,23 @@
             outline: none;
         }
         >.icon  {
-            height: 1em;
-            width: 1em;
             order: 1;
             margin-right: .1em;
         }
         >.content {
             order:2;
         }
-        &.icon-right{
-          >.icon{
-              order: 2;
-              margin-right: 0;
-              margin-left: .1em;
-          }
-            >.content {
-                order:1;
-            }
-        }
+    }
 
+    .icon-right{
+        >.icon{
+            order: 2;
+            margin-right: 0;
+            margin-left: .1em;
+        }
+        >.content {
+            order:1;
+        }
     }
 
 </style>
