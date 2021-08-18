@@ -1,5 +1,5 @@
 <template>
-    <button class="xia-button" :class="{[`icon-${iconPosition}`]: true}">
+    <button class="xia-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
         <xia-icon :name="icon" v-if="icon&&(!loading)" class="icon"></xia-icon>
         <xia-icon name="loading" v-if="loading" class="loading icon"></xia-icon>
         <div class="content">
