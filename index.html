@@ -15,7 +15,6 @@
             font-size: 14px;
         }
 
-
     </style>
 </head>
 <body>
@@ -38,6 +37,18 @@
     <hr>
     <br>
     <xia-input value="你好"></xia-input>
+    <hr>
+    <br>
+    <xia-row :gutter="50">
+        <xia-col :span="4"></xia-col>
+        <xia-col :span="8" offset="1"></xia-col>
+        <xia-col :span="8" offset="3"></xia-col>
+    </xia-row>
+    <xia-row :gutter="50">
+        <xia-col :span="4"></xia-col>
+        <xia-col :span="8" offset="1"></xia-col>
+        <xia-col :span="8" offset="3"></xia-col>
+    </xia-row>
 </div>
 <script src="./src/app.js"></script>
 </body>
