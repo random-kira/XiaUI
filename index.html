@@ -9,42 +9,24 @@
     <style>
         * {margin: 0; padding: 0; box-sizing: border-box;}
         #app {
-            margin: 20px;
+            /*margin: 20px;*/
         }
         body {
             font-size: 14px;
+        }
+        button{
         }
 
     </style>
 </head>
 <body>
 <div id="app">
-    <xia-button icon="setting">
-        你好
-    </xia-button>
-    <xia-button icon="setting" icon-position="right">
-        你好
-    </xia-button>
-    <xia-button icon="setting" icon-position="right" :loading="true">
-        你好
-    </xia-button>
-    <hr>
-    <xia-button-group>
-        <xia-button icon="left"></xia-button>
-        <xia-button>你好</xia-button>
-        <xia-button icon="right"></xia-button>
-    </xia-button-group>
-    <hr>
-    <br>
-    <xia-input value="你好"></xia-input>
-    <hr>
-    <br>
-    <xia-row :gutter="166">
-        <xia-col :span="4"></xia-col>
-        <xia-col :span="8" offset="1"></xia-col>
-        <xia-col :span="8" offset="3"></xia-col>
-    </xia-row>
+    <button @click="showToast('hihi')">HI</button>
 </div>
 <script src="./src/app.js"></script>
 </body>
 </html>
+<script>
+  export default {
+  }
+</script>
