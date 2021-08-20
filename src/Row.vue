@@ -9,7 +9,7 @@
     name: 'Row',
     props:{
       gutter:{
-          type:Number
+          type:[Number,String]
         },
       align:{
         type: String,
