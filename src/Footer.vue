@@ -1,8 +1,10 @@
 <template>
-    <div>$END$</div>
+    <div class="footer">
+        <slot></slot>
+    </div>
 </template>
 
-<script lang="ts">
+<script>
   export default {
     name: 'Footer'
   };

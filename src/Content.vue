@@ -1,13 +1,17 @@
 <template>
-    <div>$END$</div>
+    <div class="content">
+        <slot></slot>
+    </div>
 </template>
 
-<script lang="ts">
+<script>
   export default {
     name: 'Content'
   };
 </script>
 
 <style lang="scss" scoped>
-
+  .content{
+      flex-grow: 1;
+  }
 </style>
