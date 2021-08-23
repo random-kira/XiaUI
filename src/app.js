@@ -29,13 +29,42 @@ Vue.component('xia-header',Header)
 Vue.component('xia-toast',Toast)
 Vue.use(plugin)
 
+import createElement from 'vue'
+
+const h = createElement
 
 new Vue({
-    el:'#app',
-    methods:{
-      showToast(message){
-        this.$toast(message)
-      }
+  el: '#app',
+  data: {
+    loading1: false,
+    loading2: true,
+    loading3: false,
+    message: 'hi'
+  },
+  created(){
+  },
+  methods: {
+    showToast1(){
+      this.showToast('top')
+    },
+    showToast2(){
+      this.showToast('middle')
+    },
+    showToast3(){
+      this.showToast('bottom')
+    },
+    showToast(position){
+      this.$toast(`你的智商目前为 ${parseInt(Math.random() * 100)}。你的智商需要充值！`, {
+        position:position,
+        enableHtml: false,
+        closeButton: {
+          text: '已充值',
+          callback () {
+            console.log('他说已经充值智商了')
+          }
+        },
+        autoClose: 3,
+      })
     }
   }
-)
+})
