@@ -2,7 +2,7 @@
     <div class="wrapper" :class="toastClass">
         <div class="toast" ref="toast">
             <div class="message">
-                <slot v-if="enableHtml"></slot>
+                <slot v-if="!enableHtml"></slot>
                 <div v-else v-html="$slots.default[0]"></div>
             </div>
             <div class="line" ref="line"></div>
@@ -17,13 +17,12 @@
   export default {
     name: 'Toast',
     props:{
-      autoClose:{
-        type:Boolean,
-        default:false
-      },
-      autoCloseDelay:{
-        type:[Number,Boolean],
-        default: 50
+      autoClose: {
+        type: [Boolean, Number],
+        default: 5,
+        validator (value) {
+          return value === false || typeof value === 'number';
+        }
       },
       closeButton:{
         type:Object,
@@ -50,8 +49,6 @@
       this.updateStyles()
       this.execAutoClose()
     },
-    created() {
-    },
     computed:{
       toastClass(){
         return {[`position-${this.position}`]:true}
@@ -62,7 +59,7 @@
         if(this.autoClose){
           setTimeout(()=>{
             this.close()
-          },this.autoCloseDelay*1000)
+          },this.autoClose*1000)
         }
       },
       updateStyles(){
