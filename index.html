@@ -21,25 +21,12 @@
     </style>
 </head>
 <body>
-<div id="app">
-    <xia-tabs :selected.sync="selectedTab">
-        <xia-tabs-head>
-            <template slot="actions">
-                <button>设置</button>
-            </template>
-            <xia-tabs-item name="one" class="one">
-                <xia-icon name="setting" class="icon"></xia-icon>III
-            </xia-tabs-item>
-            <xia-tabs-item name="two">two</xia-tabs-item>
-            <xia-tabs-item name="three" disabled>three</xia-tabs-item>
-        </xia-tabs-head>
-
-        <xia-tabs-body>
-            <xia-tabs-pane name="one">111111</xia-tabs-pane>
-            <xia-tabs-pane name="two">222222</xia-tabs-pane>
-            <xia-tabs-pane name="three">333333</xia-tabs-pane>
-        </xia-tabs-body>
-    </xia-tabs>
+<div id="app" style="padding: 64px">
+   <xia-collapse :selected.sync="selectedTab" single>
+       <xia-collapse-item title="one" name="1">111111</xia-collapse-item>
+       <xia-collapse-item title="two" name="2">222222</xia-collapse-item>
+       <xia-collapse-item title="three" name="3">333333</xia-collapse-item>
+   </xia-collapse>
 </div>
 <script src="./src/app.js"></script>
 </body>

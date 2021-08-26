@@ -17,6 +17,8 @@ import TabsBody from "./Tabs-Body"
 import TabsHead from "./Tabs-Head"
 import TabsItem from "./Tabs-Item"
 import TabsPane from "./Tabs-Pane"
+import Collapse from "./Collapse"
+import CollapseItem from "./Collapse-Item"
 
 Vue.component('xia-button', Button)
 Vue.component('xia-icon', Icon)
@@ -39,6 +41,8 @@ Vue.component('xia-tabs-body',TabsBody)
 Vue.component('xia-tabs-head',TabsHead)
 Vue.component('xia-tabs-item',TabsItem)
 Vue.component('xia-tabs-pane',TabsPane)
+Vue.component('xia-collapse',Collapse)
+Vue.component('xia-collapse-item',CollapseItem)
 
 import createElement from 'vue'
 
@@ -46,12 +50,11 @@ const h = createElement
 
 new Vue({
   el: '#app',
-  data:{
-    selectedTab: 'two'
+  data: {
+    selectedTab: ['2']
   },
   created(){
   },
   methods: {
-
   }
 })

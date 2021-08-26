@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: 'Button-group',
+    name: 'Button-Group',
     mounted() {
       for(let node of this.$el.children){
         if(node.nodeName.toLocaleLowerCase() !== 'button'){
