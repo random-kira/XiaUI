@@ -12,6 +12,11 @@ import Footer from "./Footer"
 import Header from "./Header"
 import Toast from "./Toast"
 import plugin from "./plugin"
+import Tabs from "./Tabs"
+import TabsBody from "./Tabs-Body"
+import TabsHead from "./Tabs-Head"
+import TabsItem from "./Tabs-Item"
+import TabsPane from "./Tabs-Pane"
 
 Vue.component('xia-button', Button)
 Vue.component('xia-icon', Icon)
@@ -29,42 +34,24 @@ Vue.component('xia-header',Header)
 Vue.component('xia-toast',Toast)
 Vue.use(plugin)
 
+Vue.component('xia-tabs',Tabs)
+Vue.component('xia-tabs-body',TabsBody)
+Vue.component('xia-tabs-head',TabsHead)
+Vue.component('xia-tabs-item',TabsItem)
+Vue.component('xia-tabs-pane',TabsPane)
+
 import createElement from 'vue'
 
 const h = createElement
 
 new Vue({
   el: '#app',
-  data: {
-    loading1: false,
-    loading2: true,
-    loading3: false,
-    message: 'hi'
+  data:{
+    selectedTab: 'two'
   },
   created(){
   },
   methods: {
-    showToast1(){
-      this.showToast('top')
-    },
-    showToast2(){
-      this.showToast('middle')
-    },
-    showToast3(){
-      this.showToast('bottom')
-    },
-    showToast(position){
-      this.$toast(`你的智商目前为 ${parseInt(Math.random() * 100)}。你的智商需要充值！`, {
-        position:position,
-        enableHtml: false,
-        closeButton: {
-          text: '已充值',
-          callback () {
-            console.log('他说已经充值智商了')
-          }
-        },
-        autoClose: 3,
-      })
-    }
+
   }
 })

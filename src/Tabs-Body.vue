@@ -1,10 +1,13 @@
 <template>
-    <div>$END$</div>
+    <div class="tabs-body">
+        <slot></slot>
+    </div>
 </template>
 
-<script lang="ts">
+<script>
   export default {
-    name: 'Tabs-body'
+    name: 'Tabs-body',
+    inject:['eventBus']
   };
 </script>
 

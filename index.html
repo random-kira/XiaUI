@@ -15,20 +15,36 @@
         }
         button{
         }
-
+        .icon{
+            vertical-align: -0.1em;
+        }
     </style>
 </head>
 <body>
 <div id="app">
-    <button @click="showToast1">HI</button>
-    <button @click="showToast2">HI</button>
-    <button @click="showToast3">HI</button>
+    <xia-tabs :selected.sync="selectedTab">
+        <xia-tabs-head>
+            <template slot="actions">
+                <button>设置</button>
+            </template>
+            <xia-tabs-item name="one" class="one">
+                <xia-icon name="setting" class="icon"></xia-icon>III
+            </xia-tabs-item>
+            <xia-tabs-item name="two">two</xia-tabs-item>
+            <xia-tabs-item name="three" disabled>three</xia-tabs-item>
+        </xia-tabs-head>
+
+        <xia-tabs-body>
+            <xia-tabs-pane name="one">111111</xia-tabs-pane>
+            <xia-tabs-pane name="two">222222</xia-tabs-pane>
+            <xia-tabs-pane name="three">333333</xia-tabs-pane>
+        </xia-tabs-body>
+    </xia-tabs>
 </div>
 <script src="./src/app.js"></script>
 </body>
 </html>
 
 <script>
-  export default {
-  }
+
 </script>
