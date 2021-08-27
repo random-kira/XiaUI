@@ -10,8 +10,8 @@ import Sider from "./Sider"
 import Content from "./Content"
 import Footer from "./Footer"
 import Header from "./Header"
-import Toast from "./Toast"
-import plugin from "./plugin"
+// import Toast from "./Toast"
+// import plugin from "./plugin"
 import Tabs from "./Tabs"
 import TabsBody from "./Tabs-Body"
 import TabsHead from "./Tabs-Head"
@@ -34,8 +34,8 @@ Vue.component('xia-content',Content)
 Vue.component('xia-footer',Footer)
 Vue.component('xia-header',Header)
 
-Vue.component('xia-toast',Toast)
-Vue.use(plugin)
+// Vue.component('xia-toast',Toast)
+// Vue.use(plugin)
 
 Vue.component('xia-tabs',Tabs)
 Vue.component('xia-tabs-body',TabsBody)

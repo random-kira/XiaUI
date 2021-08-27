@@ -1,9 +1,11 @@
 <template>
-    <div class="popover" @click="trigger">
-        <div class="content-wrapper" v-if="visible">
+    <div class="popover" @click="onClickPopover" ref="popover">
+        <div ref="contentWrapper" class="content-wrapper" v-if="visible">
             <slot name="content" ></slot>
         </div>
-        <slot></slot>
+        <span ref="triggerWrapper">
+            <slot></slot>
+        </span>
     </div>
 </template>
 
@@ -16,10 +18,41 @@
       }
     },
     methods:{
-      trigger(){
-        this.visible = !this.visible
+      positionContent(){
+        document.body.appendChild(this.$refs.contentWrapper)
+        let {width, height, left, top} = this.$refs.triggerWrapper.getBoundingClientRect()
+        this.$refs.contentWrapper.style.left = left+window.screenX+'px'
+        this.$refs.contentWrapper.style.top = top+window.screenY+'px'
+      },
+      onClickDocument(e){
+        if (this.$refs.popover.contains(e.target)||this.$refs.contentWrapper.contains(e.target))
+          {
+            return
+          }
+          this.close()
+        },
+      onClickPopover(event){
+        if (this.$refs.triggerWrapper.contains(event.target)){
+          if(this.visible === true){
+            this.close()
+          }else {
+            this.open()
+          }
+        }
+      },
+      open(){
+        this.visible = true
+        this.$nextTick(()=>{
+          this.positionContent()
+          document.addEventListener('click',this.onClickDocument)
+        })
+      },
+      close(){
+        this.visible = false
+        document.removeEventListener('click',this.onClickDocument)
       }
     }
+
   };
 </script>
 
@@ -28,13 +61,13 @@
         display: inline-block;
         vertical-align: top;
         position: relative;
-        &.content-wrapper{
-            position: absolute;
-            bottom: 100%;
-            left: 0;
-            border: 1px solid red;
-            box-shadow: 0 0 3px rgba(0,0,0,0.5);
-        }
+        border: 1px solid greenyellow;
+    }
+    .content-wrapper{
+        position: absolute;
+        border: 1px solid red;
+        box-shadow: 0 0 3px rgba(0,0,0,0.5);
+        transform: translateY(-108%);
     }
 
 </style>
