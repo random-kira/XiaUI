@@ -19,6 +19,7 @@ import TabsItem from "./Tabs-Item"
 import TabsPane from "./Tabs-Pane"
 import Collapse from "./Collapse"
 import CollapseItem from "./Collapse-Item"
+import Popover from "./Popover"
 
 Vue.component('xia-button', Button)
 Vue.component('xia-icon', Icon)
@@ -43,6 +44,7 @@ Vue.component('xia-tabs-item',TabsItem)
 Vue.component('xia-tabs-pane',TabsPane)
 Vue.component('xia-collapse',Collapse)
 Vue.component('xia-collapse-item',CollapseItem)
+Vue.component('xia-popover',Popover)
 
 import createElement from 'vue'
 
@@ -51,7 +53,7 @@ const h = createElement
 new Vue({
   el: '#app',
   data: {
-    selectedTab: ['2']
+
   },
   created(){
   },

@@ -22,16 +22,18 @@
 </head>
 <body>
 <div id="app" style="padding: 64px">
-   <xia-collapse :selected.sync="selectedTab" single>
-       <xia-collapse-item title="one" name="1">111111</xia-collapse-item>
-       <xia-collapse-item title="two" name="2">222222</xia-collapse-item>
-       <xia-collapse-item title="three" name="3">333333</xia-collapse-item>
-   </xia-collapse>
+    <xia-popover>
+        <template slot="content">
+            <div>弹出内容</div>
+        </template>
+        <button>点我</button>
+    </xia-popover>
 </div>
 <script src="./src/app.js"></script>
 </body>
 </html>
 
 <script>
-
+  export default {
+  }
 </script>
