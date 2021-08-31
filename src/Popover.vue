@@ -38,7 +38,7 @@
         this.$refs.popover.addEventListener('click', this.onClickPopover)
       } else {
         this.$refs.popover.addEventListener('mouseenter', this.open)
-        this.$refs.popover.addEventListener('mouseleave', this.mouseLeaveClose)
+        this.$refs.popover.addEventListener('mouseleave', this.close)
       }
     },
     destroyed () {
@@ -46,7 +46,7 @@
         this.$refs.popover.removeEventListener('click', this.onClickPopover)
       } else {
         this.$refs.popover.removeEventListener('mouseenter', this.open)
-        this.$refs.popover.removeEventListener('mouseleave', this.mouseLeaveClose)
+        this.$refs.popover.removeEventListener('mouseleave', this.close)
       }
     },
     methods:{
@@ -104,14 +104,16 @@
       //   let y = event.clientY
       //   return document.elementFromPoint(x, y)
       // },
-      mouseLeaveClose(e){
-        //获取ele 如果是content 就return
-        // let ele = this.get_current_element(e)
-        // if( ele === this.$refs.contentWrapper ){return}
-        // console.log(ele)
-        this.visible = false
-        document.removeEventListener('click',this.onClickDocument)
-      }
+      // mouseLeaveClose(e){
+      //   //获取鼠标当前指向元素 如果是content 就监听content mouseleave 触发则remove e
+      //   //然后return
+      //
+      //   // let ele = this.get_current_element(e)
+      //   // if( ele === this.$refs.contentWrapper ){return}
+      //   // console.log(ele)
+      //   this.visible = false
+      //   document.removeEventListener('click',this.onClickDocument)
+      // }
     }
 
   };
